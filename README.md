@@ -8,7 +8,7 @@ My own cryptocurrency that I am writing in Python. REST API implemented via Flas
 4. Re-do architechture to not be monolithic
 5. (Stretch) Add a nice front-end for RESTful API using Flask :)
 
-Tutorials that helped me along the way: 
+Resources and tutorials that I found beneficial: 
 * https://cranklin.wordpress.com/2017/07/11/lets-create-our-own-cryptocurrency/
 * https://hackernoon.com/learn-blockchains-by-building-one-117428612f46
 * https://en.wikipedia.org/wiki/SHA-3
