@@ -16,3 +16,4 @@ Resources and tutorials that I found beneficial:
 * https://en.wikipedia.org/wiki/SHA-3
 * https://flask.palletsprojects.com/en/0.12.x/quickstart/#a-minimal-application
 * https://medium.com/nakamo-to/nakamoto-consensus-21cd304f96ff
+* https://www.geeksforgeeks.org/unit-testing-python-unittest/
