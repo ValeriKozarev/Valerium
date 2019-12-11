@@ -13,3 +13,4 @@ Resources and tutorials that I found beneficial:
 * https://hackernoon.com/learn-blockchains-by-building-one-117428612f46
 * https://en.wikipedia.org/wiki/SHA-3
 * https://flask.palletsprojects.com/en/0.12.x/quickstart/#a-minimal-application
+* https://medium.com/nakamo-to/nakamoto-consensus-21cd304f96ff
