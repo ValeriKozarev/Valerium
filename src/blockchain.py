@@ -2,10 +2,8 @@ import time
 import json
 import hashlib
 import requests
-from uuid import uuid4
 from urllib.parse import urlparse
-from flask import Flask, jsonify, request
-
+import src.flask.routes as flask
 
 class Blockchain(object):
     """
@@ -158,113 +156,16 @@ class Blockchain(object):
         :param block: <dict> block
         :return: <str> hash of the block
         """
-        block_stirng = json.dumps(block, sort_keys=True).encode()
-        return hashlib.sha3_512(block_stirng).hexdigest()
+        block_string = json.dumps(block, sort_keys=True).encode()
+        return hashlib.sha3_512(block_string).hexdigest()
 
     @property
     def get_last_block(self):
         return self.chain[-1]
 
 
-"""
-Flask stuff
-"""
-# instantiate the Flask node
-app = Flask(__name__)
-
-# generate unique address for our node
-identifier = str(uuid4()).replace('-', '')
-
 # instantiate the Valerium blockchain
 blockchain = Blockchain()
 
-
-@app.route('/mine', methods=['GET'])
-def mine():
-    # run proof-of-work algorithn
-    last_block = blockchain.get_last_block
-    last_proof = last_block["proof"]
-    proof = blockchain.create_pow(last_proof)
-
-    # receive reward on successful mine (indicate with sender = "0"
-    blockchain.create_transaction("0", identifier, 1)
-
-    # forge the new block
-    previous_hash = blockchain.hash(last_block)
-    new_block = blockchain.create_block(proof, previous_hash)
-
-    response = {
-        "message": "new block has been forged",
-        "index": new_block["index"],
-        "transactions": new_block["transactions"],
-        "proof": new_block["proof"],
-        "hash_of_previous": new_block["hash_of_previous"]
-    }
-
-    return jsonify(response), 201
-
-
-@app.route('/transactions/new', methods=['POST'])
-def new_transaction():
-    # store the request
-    values = request.get_json(force=True)
-
-    # validate the request
-    required_fields = ["sender", "recipient", "amount"]
-    if not all(k in values for k in required_fields):
-        return "Invalid request format", 400
-
-    # create the new transaction
-    index = blockchain.create_transaction(values["sender"], values["recipient"], values["amount"])
-    response = {"message": f'Transaction will be added to block at index {index}'}
-
-    return jsonify(response), 201
-
-
-@app.route('/chain', methods=['GET'])
-def full_chain():
-    response = {
-        'chain': blockchain.chain,
-        'length': len(blockchain.chain),
-    }
-    return jsonify(response), 200
-
-
-@app.route('/nodes/register', methods=['POST'])
-def register_nodes():
-    values = request.get_json(force=True)
-
-    nodes = values.get('nodes')
-    if nodes is None:
-        return "Error: Please supply a valid list of nodes", 400
-
-    for node in nodes:
-        blockchain.register_node(node)
-
-    response = {
-        'message': 'New nodes have been added',
-        'total_nodes': list(blockchain.nodes),
-    }
-    return jsonify(response), 201
-
-
-@app.route('/nodes/resolve', methods=['GET'])
-def consensus():
-    replaced = blockchain.reach_consensus()
-
-    if replaced:
-        response = {
-            'message': 'Our chain was replaced',
-            'new_chain': blockchain.chain
-        }
-    else:
-        response = {
-            'message': 'Our chain is authoritative',
-            'chain': blockchain.chain
-        }
-
-    return jsonify(response), 200
-
-
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=9000)
+    flask.app.run(host='0.0.0.0', port=9000)
