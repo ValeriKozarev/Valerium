@@ -1,5 +1,5 @@
 # Valerium :milky_way:
-My own cryptocurrency that I am writing in Python. REST API implemented via Flask. 
+My own cryptocurrency that I am writing in Python. REST API implemented via Flask. This will never ICO!
 
 ## Current TODOs:
 1. Add consensus protocol :white_check_mark:
@@ -17,3 +17,4 @@ Resources and tutorials that I found beneficial:
 * https://flask.palletsprojects.com/en/0.12.x/quickstart/#a-minimal-application
 * https://medium.com/nakamo-to/nakamoto-consensus-21cd304f96ff
 * https://www.geeksforgeeks.org/unit-testing-python-unittest/
+* https://www.investopedia.com/news/what-ico/
