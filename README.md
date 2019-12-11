@@ -3,11 +3,12 @@ My own cryptocurrency that I am writing in Python. REST API implemented via Flas
 
 ## Current TODOs:
 1. Add consensus protocol :white_check_mark:
-2. Re-do architechture to not be monolithic :white_check_mark:
-3. Improve asynchronicity
-4. Test
-5. Improve proof-of-work algorithm
-6. (Stretch) Add a nice front-end for RESTful API using Flask :)
+2. Re-do project architecture (was way too not be monolithic before) :white_check_mark:
+3. Improve/validate asynchronicity
+4. Test!
+5. Improve/change proof-of-work algorithm
+6. Improve consensus algorithm
+7. (Stretch) Add a nice front-end for RESTful API using Flask :)
 
 Resources and tutorials that I found beneficial: 
 * https://cranklin.wordpress.com/2017/07/11/lets-create-our-own-cryptocurrency/
