@@ -1,8 +1,8 @@
 # Valerium :milky_way:
-My own cryptocurrency that I am writing in Python. REST API implemented via Flask.
+My own cryptocurrency that I am writing in Python. REST API implemented via Flask. 
 
 ## Current TODOs:
-1. Add consensus protocol
+1. Add consensus protocol :white_check_mark:
 2. Improve and test asynchronicity
 3. Improve proof-of-work algorithm
 4. Re-do architechture to not be monolithic
