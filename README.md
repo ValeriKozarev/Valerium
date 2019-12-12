@@ -1,5 +1,5 @@
 # Valerium :milky_way:
-My own cryptocurrency that I am writing in Python. REST API implemented via Flask. This will never ICO!
+My own cryptocurrency that I am writing in Python. REST API implemented via Flask. Currently functional as a proof-of-concept project but it will never ICO!
 
 ## Current TODOs:
 1. Add consensus protocol :white_check_mark:
