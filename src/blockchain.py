@@ -3,15 +3,12 @@ import json
 import hashlib
 import requests
 from urllib.parse import urlparse
-import src.flask.routes as flask
 
 class Blockchain(object):
     """
     This class is responsible for managing the blockchain (surprise)! It will store transactions and have some helper
     methods for adding new blocks to the chain
     """
-
-    # pythonic constructor
     def __init__(self):
         self.chain = []
         self.transaction_list = []
@@ -22,7 +19,7 @@ class Blockchain(object):
 
     def register_node(self, address):
         """
-        Create a new node fro the network
+        Create a new node for the network
         :param address: <str> IP address of the node
         :return None
         """
@@ -166,6 +163,8 @@ class Blockchain(object):
 
 # instantiate the Valerium blockchain
 blockchain = Blockchain()
+
+import src.flask.routes as flask
 
 if __name__ == '__main__':
     flask.app.run(host='0.0.0.0', port=9000)

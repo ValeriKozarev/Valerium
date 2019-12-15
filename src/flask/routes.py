@@ -36,7 +36,7 @@ def mine():
 
 @app.route('/transactions/new', methods=['POST'])
 def new_transaction():
-    # store the request
+    # store the request, always make it JSON
     values = request.get_json(force=True)
 
     # validate the request
