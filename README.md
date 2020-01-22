@@ -19,3 +19,4 @@ Resources and tutorials that I found beneficial:
 * https://www.geeksforgeeks.org/unit-testing-python-unittest/
 * https://www.investopedia.com/news/what-ico/
 * https://themerkle.com/what-is-the-mining-difficulty/
+* https://pypi.org/project/httmock/
