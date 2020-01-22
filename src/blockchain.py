@@ -4,6 +4,7 @@ import hashlib
 import requests
 from urllib.parse import urlparse
 
+
 class Blockchain(object):
     """
     This class is responsible for managing the blockchain (surprise)! It will store transactions and have some helper

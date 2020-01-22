@@ -15,10 +15,23 @@ class TestBlockchainMethods(unittest.TestCase):
         self.assertEqual(len(blockchain.nodes), 1)
 
     def test_create_transaction(self):
-        pass
+        blockchain = Blockchain()
+        self.assertEqual(len(blockchain.transaction_list), 0)
+
+        blockchain.create_transaction("test_sender", "test_receiver", 50)
+        self.assertEqual(len(blockchain.transaction_list), 1)
+        self.assertEqual(blockchain.transaction_list[0]['amount'], 50)
 
     def test_create_block(self):
-        pass
+        blockchain = Blockchain()
+        self.assertEqual(len(blockchain.chain), 1)
+        self.assertEqual(len(blockchain.transaction_list), 0)
+
+        # test that transactions are committed within the block
+        blockchain.create_transaction("test_sender", "test_receiver", 50)
+        blockchain.create_block(100, 1)
+        self.assertEqual(len(blockchain.chain), 2)
+        self.assertEqual(len(blockchain.chain[1]['transactions']), 1)
 
     def test_consensus(self):
         pass
