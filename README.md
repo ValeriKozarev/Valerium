@@ -6,8 +6,9 @@ My own cryptocurrency that I am writing in Python. REST API implemented via Flas
 2. Re-do project architecture (was way too not be monolithic before) :white_check_mark:
 3. Improve/validate asynchronicity :white_check_mark:
 4. Test/Validate! :white_check_mark:  
-~~5. Improve consensus algorithm~~
-6. Make PoW adjust difficulty over time
+
+~~5. Improve consensus algorithm~~  
+6. Make PoW adjust difficulty over time  
 7. (Stretch) Add a nice front-end for RESTful API using Flask :)
 
 Resources and tutorials that I found beneficial: 
